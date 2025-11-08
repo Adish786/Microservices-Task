@@ -82,12 +82,17 @@ Gateway Service	http://localhost:3003/api/users	3003
 On AWS EC2, replace localhost with your EC2 public IP (e.g., http://13.233.xx.xx:3000/users).
 
 5:- To stop and remove all containers:
-  sudo docker-compose down
+    sudo docker-compose down
 6:- Troubleshooting Tips
+
 Issue	Fix
+
 Cannot connect to Docker daemon	Run sudo systemctl start docker
 Missing script: start	Add "scripts": { "start": "node app.js" } in package.json
+
 Connection refused	Check Security Group inbound ports (3000–3003)
+
 Containers exit	Check sudo docker logs <container_name>
+
 Changes not applied	Run sudo docker-compose down && sudo docker-compose up -d --build
 
